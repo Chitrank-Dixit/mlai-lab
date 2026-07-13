@@ -1,0 +1,44 @@
+# File: compose.deep-ml.yml
+version: '3.8'
+
+services:
+  # JupyterLab service for Deep Learning experiments (PyTorch, TensorFlow)
+  deep-ml:
+    build:
+      context: .
+      dockerfile: deep-ml/Dockerfile
+    image: ml-lab-deep-ml:latest
+    container_name: ml-lab-deep-ml
+    ports:
+      - "${DEEP_ML_PORT:-8889}:8888"
+    volumes:
+      - ./deep-ml/notebooks:/workspace/notebooks
+      - shared_notebooks:/workspace/shared
+    environment:
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN:-antigravity}
+      - MLFLOW_TRACKING_URI=${MLFLOW_TRACKING_URI:-http://mlflow:5000}
+      - CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-all}
+    depends_on:
+      mlflow:
+        condition: service_healthy
+    networks:
+      - ml-lab-net
+    command: >
+      wait-for-it.sh mlflow 5000 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=${JUPYTER_TOKEN:-antigravity}
+    
+    # GPU execution configuration - uncomment/comment based on environment
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+networks:
+  ml-lab-net:
+    external: true
+
+volumes:
+  shared_notebooks:
+    external: true

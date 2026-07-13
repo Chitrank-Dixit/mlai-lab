@@ -1,0 +1,34 @@
+# File: compose.basic-ml.yml
+version: '3.8'
+
+services:
+  # JupyterLab service for Basic ML experiments
+  basic-ml:
+    build:
+      context: .
+      dockerfile: basic-ml/Dockerfile
+    image: ml-lab-basic-ml:latest
+    container_name: ml-lab-basic-ml
+    ports:
+      - "${BASIC_ML_PORT:-8888}:8888"
+    volumes:
+      - ./basic-ml/notebooks:/workspace/notebooks
+      - shared_notebooks:/workspace/shared
+    environment:
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN:-antigravity}
+      - MLFLOW_TRACKING_URI=${MLFLOW_TRACKING_URI:-http://mlflow:5000}
+    depends_on:
+      mlflow:
+        condition: service_healthy
+    networks:
+      - ml-lab-net
+    command: >
+      wait-for-it.sh mlflow 5000 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=${JUPYTER_TOKEN:-antigravity}
+
+networks:
+  ml-lab-net:
+    external: true
+
+volumes:
+  shared_notebooks:
+    external: true

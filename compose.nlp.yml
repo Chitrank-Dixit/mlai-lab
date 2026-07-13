@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # JupyterLab service for NLP experiments
+  nlp-lab:
+    build:
+      context: .
+      dockerfile: nlp-lab/Dockerfile
+    image: ml-lab-nlp-lab:latest
+    container_name: ml-lab-nlp-lab
+    ports:
+      - "${NLP_PORT:-8890}:8888"
+    volumes:
+      - ./nlp-lab/notebooks:/workspace/notebooks
+      - shared_notebooks:/workspace/shared
+    environment:
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN:-antigravity}
+      - MLFLOW_TRACKING_URI=${MLFLOW_TRACKING_URI:-http://mlflow:5000}
+    depends_on:
+      mlflow:
+        condition: service_healthy
+    networks:
+      - ml-lab-net
+    command: >
+      wait-for-it.sh mlflow 5000 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=${JUPYTER_TOKEN:-antigravity}
+
+networks:
+  ml-lab-net:
+    external: true
+
+volumes:
+  shared_notebooks:
+    external: true

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  mlflow:
+    image: ghcr.io/mlflow/mlflow:latest
+    container_name: ml-lab-mlflow
+    ports:
+      - "${MLFLOW_PORT:-5000}:5000"
+    volumes:
+      - mlflow_data:/workspace
+    environment:
+      - MLFLOW_TRACKING_URI=http://0.0.0.0:5000
+    command: mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:///workspace/mlflow.db --default-artifact-root /workspace/artifacts
+    healthcheck:
+      test: ["CMD-SHELL", "python -c \"import urllib.request; urllib.request.urlopen('http://localhost:5000/')\""]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    networks:
+      - ml-lab-net
+
+networks:
+  ml-lab-net:
+    external: true
+
+volumes:
+  shared_notebooks:
+    external: true
+  mlflow_data:
+    name: mlflow_data

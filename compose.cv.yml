@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # JupyterLab service for Computer Vision experiments (GPU accelerated)
+  cv-lab:
+    build:
+      context: .
+      dockerfile: cv-lab/Dockerfile
+    image: ml-lab-cv-lab:latest
+    container_name: ml-lab-cv-lab
+    ports:
+      - "${CV_PORT:-8891}:8888"
+    volumes:
+      - ./cv-lab/notebooks:/workspace/notebooks
+      - shared_notebooks:/workspace/shared
+    environment:
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN:-antigravity}
+      - MLFLOW_TRACKING_URI=${MLFLOW_TRACKING_URI:-http://mlflow:5000}
+      - CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-all}
+    depends_on:
+      mlflow:
+        condition: service_healthy
+    networks:
+      - ml-lab-net
+    command: >
+      wait-for-it.sh mlflow 5000 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=${JUPYTER_TOKEN:-antigravity}
+    
+    # GPU execution configuration
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+networks:
+  ml-lab-net:
+    external: true
+
+volumes:
+  shared_notebooks:
+    external: true
