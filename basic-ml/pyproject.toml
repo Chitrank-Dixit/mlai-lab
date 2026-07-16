@@ -18,4 +18,5 @@ dependencies = [
     "seaborn>=0.12.0",
     "ipywidgets>=8.0.0",
     "jupyterlab>=4.0.0",
+    "statsmodels>=0.14.6",
 ]
