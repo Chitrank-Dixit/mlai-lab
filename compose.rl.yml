@@ -17,6 +17,8 @@ services:
       - JUPYTER_TOKEN=${JUPYTER_TOKEN:-antigravity}
       - MLFLOW_TRACKING_URI=${MLFLOW_TRACKING_URI:-http://mlflow:5000}
       - CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-all}
+      - TF_CPP_MIN_LOG_LEVEL=3
+      - TF_ENABLE_ONEDNN_OPTS=0
     depends_on:
       mlflow:
         condition: service_healthy
@@ -26,13 +28,13 @@ services:
       wait-for-it.sh mlflow 5000 jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token=${JUPYTER_TOKEN:-antigravity}
     
     # GPU execution configuration
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: all
-              capabilities: [gpu]
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
 
 networks:
   ml-lab-net:

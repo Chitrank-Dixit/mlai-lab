@@ -1,6 +1,6 @@
 # File: cv-lab/Dockerfile
-# Inherits from the shared CUDA base image
-FROM ml-lab-base-cuda123:latest
+# Inherits from the shared CPU base image
+FROM ml-lab-base-cpu:latest
 
 # Install extra system libraries required by OpenCV and graphics rendering
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -13,8 +13,8 @@ WORKDIR /tmp
 # Copy dependency configuration files
 COPY cv-lab/pyproject.toml cv-lab/uv.lock ./
 
-# Sync locked dependencies system-wide inside the container
-RUN uv sync --frozen
+# Sync dependencies system-wide inside the container
+RUN uv sync
 
 # Reset working directory to workspace
 WORKDIR /workspace

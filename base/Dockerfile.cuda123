@@ -23,7 +23,9 @@ RUN add-apt-repository -y ppa:deadsnakes/ppa \
 
 # Set Python 3.11 as default command for python/python3
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3.11 1 \
-    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
+    && update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1 \
+    && ln -s /usr/bin/python3.11 /usr/local/bin/python \
+    && ln -s /usr/bin/python3.11 /usr/local/bin/python3
 
 # Copy uv binary from the official image
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /usr/local/bin/

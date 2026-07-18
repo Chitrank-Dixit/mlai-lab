@@ -1,6 +1,6 @@
 # File: deep-ml/Dockerfile
-# Inherits from the shared CUDA base image
-FROM ml-lab-base-cuda123:latest
+# Inherits from the shared CPU base image
+FROM ml-lab-base-cpu:latest
 
 # Set up temporary working directory for build
 WORKDIR /tmp
@@ -8,8 +8,8 @@ WORKDIR /tmp
 # Copy dependency configuration files
 COPY deep-ml/pyproject.toml deep-ml/uv.lock ./
 
-# Sync locked dependencies system-wide inside the container
-RUN uv sync --frozen
+# Sync dependencies system-wide inside the container
+RUN uv sync
 
 # Reset working directory to workspace
 WORKDIR /workspace
