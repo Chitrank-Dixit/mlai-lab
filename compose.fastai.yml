@@ -1,0 +1,43 @@
+# JupyterLab environment for fast.ai experiments.
+services:
+  deep-ml-fastai:
+    build:
+      context: .
+      dockerfile: deep-ml-fastai/Dockerfile
+    image: ml-lab-fastai:latest
+    container_name: ml-lab-fastai
+    ports:
+      - "${FASTAI_PORT:-8893}:8888"
+    volumes:
+      - ./deep-ml-fastai/notebooks:/workspace/notebooks
+      - ./deep-ml-fastai/resources:/workspace/resources
+      - shared_notebooks:/workspace/shared
+    environment:
+      JUPYTER_TOKEN: ${JUPYTER_TOKEN:-antigravity}
+      MLFLOW_TRACKING_URI: ${MLFLOW_TRACKING_URI:-http://mlflow:5000}
+      CUDA_VISIBLE_DEVICES: ${CUDA_VISIBLE_DEVICES:-0}
+    depends_on:
+      mlflow:
+        condition: service_healthy
+    networks:
+      - ml-lab-net
+    command: >
+      wait-for-it.sh mlflow 5000 jupyter lab --ip=0.0.0.0 --port=8888
+      --no-browser --allow-root --NotebookApp.token=${JUPYTER_TOKEN:-antigravity}
+    
+    # GPU execution configuration
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+networks:
+  ml-lab-net:
+    external: true
+
+volumes:
+  shared_notebooks:
+    external: true

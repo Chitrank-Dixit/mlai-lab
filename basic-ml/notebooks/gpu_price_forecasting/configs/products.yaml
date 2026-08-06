@@ -1,0 +1,68 @@
+# RTX 50 Series Product Catalog Configuration
+target_gpu_series: "NVIDIA RTX 50 Series"
+currency: "INR"
+
+products:
+  - sku_id: "RTX5060TI-16G-GIGA-GAMING"
+    brand: "Gigabyte"
+    chipset: "RTX 5060 Ti"
+    model_name: "GeForce RTX 5060 Ti Gaming OC 16GB"
+    vram_gb: 16
+    vram_type: "GDDR7"
+    msrp_inr: 49999
+    is_reference_spec: false
+
+  - sku_id: "RTX5060TI-8G-MSI-VENTUS"
+    brand: "MSI"
+    chipset: "RTX 5060 Ti"
+    model_name: "GeForce RTX 5060 Ti Ventus 2X 8GB"
+    vram_gb: 8
+    vram_type: "GDDR7"
+    msrp_inr: 41999
+    is_reference_spec: false
+
+  - sku_id: "RTX5070-12G-ASUS-TUF"
+    brand: "ASUS"
+    chipset: "RTX 5070"
+    model_name: "TUF Gaming GeForce RTX 5070 12GB"
+    vram_gb: 12
+    vram_type: "GDDR7"
+    msrp_inr: 64999
+    is_reference_spec: true
+
+  - sku_id: "RTX5070TI-16G-ZOTAC-TRIN"
+    brand: "ZOTAC"
+    chipset: "RTX 5070 Ti"
+    model_name: "Gaming GeForce RTX 5070 Ti Trinity 16GB"
+    vram_gb: 16
+    vram_type: "GDDR7"
+    msrp_inr: 84999
+    is_reference_spec: false
+
+  - sku_id: "RTX5060TI-16G-ASUS-DUAL"
+    brand: "ASUS"
+    chipset: "RTX 5060 Ti"
+    model_name: "ASUS Dual GeForce RTX 5060 Ti 16GB GDDR7 OC Edition"
+    vram_gb: 16
+    vram_type: "GDDR7"
+    msrp_inr: 49999
+    is_reference_spec: false
+
+  - sku_id: "RTX5060TI-16G-MSI-SHADOW"
+    brand: "MSI"
+    chipset: "RTX 5060 Ti"
+    model_name: "MSI Shadow GeForce RTX 5060 Ti 16GB GDDR7 2X OC"
+    vram_gb: 16
+    vram_type: "GDDR7"
+    msrp_inr: 48999
+    is_reference_spec: false
+
+  - sku_id: "RTX5060TI-16G-GIGA-EAGLE"
+    brand: "Gigabyte"
+    chipset: "RTX 5060 Ti"
+    model_name: "Gigabyte Eagle Max GeForce RTX 5060 Ti 16GB GDDR7 OC Triple Fan"
+    vram_gb: 16
+    vram_type: "GDDR7"
+    msrp_inr: 51999
+    is_reference_spec: false
+

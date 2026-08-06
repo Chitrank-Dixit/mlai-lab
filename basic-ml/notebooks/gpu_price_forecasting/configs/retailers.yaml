@@ -1,0 +1,32 @@
+# Indian Retailers Configuration
+region: "India"
+default_currency: "INR"
+
+retailers:
+  - retailer_id: "MDCOMPUTERS"
+    name: "MD Computers"
+    type: "online_store"
+    base_url: "https://mdcomputers.in"
+    default_shipping_cost_inr: 0
+    trust_score: 0.95
+
+  - retailer_id: "PRIMEABGB"
+    name: "PrimeABGB"
+    type: "online_store"
+    base_url: "https://www.primeabgb.com"
+    default_shipping_cost_inr: 250
+    trust_score: 0.95
+
+  - retailer_id: "VEDANT"
+    name: "Vedant Computers"
+    type: "online_store"
+    base_url: "https://www.vedantcomputers.com"
+    default_shipping_cost_inr: 0
+    trust_score: 0.92
+
+  - retailer_id: "LOCAL_VENDOR_QUOTE"
+    name: "Nehru Place Local Vendor Quote"
+    type: "offline_vendor"
+    base_url: "offline://csv_quote"
+    default_shipping_cost_inr: 500
+    trust_score: 0.88

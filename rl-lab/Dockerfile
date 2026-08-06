@@ -1,6 +1,6 @@
 # File: rl-lab/Dockerfile
-# Inherits from the shared CPU base image
-FROM ml-lab-base-cpu:latest
+# Inherits from the shared GPU base image
+FROM ml-lab-base-cuda123:latest
 
 # Install system dependencies for OpenGL rendering, virtual framebuffers, and video logging
 RUN apt-get update && apt-get install -y --no-install-recommends \

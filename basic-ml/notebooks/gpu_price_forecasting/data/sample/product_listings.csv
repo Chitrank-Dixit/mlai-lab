@@ -1,0 +1,15 @@
+listing_id,sku_id,retailer_id,listing_title,url_or_ref,is_active
+LST-5060TI-16G-MD,RTX5060TI-16G-GIGA-GAMING,MDCOMPUTERS,Gigabyte RTX 5060 Ti Gaming OC 16GB,https://mdcomputers.in/rtx-5060ti-gaming-oc-16gb,true
+LST-5060TI-16G-PRIME,RTX5060TI-16G-GIGA-GAMING,PRIMEABGB,Gigabyte RTX 5060 Ti Gaming OC 16GB,https://primeabgb.com/rtx-5060ti-gaming-oc-16gb,true
+LST-5060TI-16G-LOCAL,RTX5060TI-16G-GIGA-GAMING,LOCAL_VENDOR_QUOTE,Gigabyte RTX 5060 Ti Gaming OC 16GB Quote,offline_quote_2026_np,true
+LST-5060TI-8G-MD,RTX5060TI-8G-MSI-VENTUS,MDCOMPUTERS,MSI RTX 5060 Ti Ventus 2X 8GB,https://mdcomputers.in/msi-rtx-5060ti-ventus-8gb,true
+LST-5060TI-8G-VEDANT,RTX5060TI-8G-MSI-VENTUS,VEDANT,MSI RTX 5060 Ti Ventus 2X 8GB,https://vedantcomputers.com/msi-rtx-5060ti-ventus-8gb,true
+LST-5070-12G-MD,RTX5070-12G-ASUS-TUF,MDCOMPUTERS,ASUS TUF Gaming RTX 5070 12GB,https://mdcomputers.in/asus-tuf-rtx-5070-12gb,true
+LST-5070TI-16G-PRIME,RTX5070TI-16G-ZOTAC-TRIN,PRIMEABGB,ZOTAC Gaming RTX 5070 Ti Trinity 16GB,https://primeabgb.com/zotac-rtx-5070ti-trinity-16gb,true
+LST-5060TI-16G-ASUS-MD,RTX5060TI-16G-ASUS-DUAL,MDCOMPUTERS,ASUS Dual RTX 5060 Ti 16GB OC,https://mdcomputers.in/asus-dual-rtx-5060ti-16gb,true
+LST-5060TI-16G-ASUS-PRIME,RTX5060TI-16G-ASUS-DUAL,PRIMEABGB,ASUS Dual RTX 5060 Ti 16GB OC,https://primeabgb.com/asus-dual-rtx-5060ti-16gb,true
+LST-5060TI-16G-MSI-SH-MD,RTX5060TI-16G-MSI-SHADOW,MDCOMPUTERS,MSI Shadow RTX 5060 Ti 16GB 2X OC,https://mdcomputers.in/msi-shadow-rtx-5060ti-16gb,true
+LST-5060TI-16G-MSI-SH-VEDANT,RTX5060TI-16G-MSI-SHADOW,VEDANT,MSI Shadow RTX 5060 Ti 16GB 2X OC,https://vedantcomputers.com/msi-shadow-rtx-5060ti-16gb,true
+LST-5060TI-16G-EAGLE-PRIME,RTX5060TI-16G-GIGA-EAGLE,PRIMEABGB,Gigabyte Eagle Max RTX 5060 Ti 16GB OC,https://primeabgb.com/gigabyte-eagle-rtx-5060ti-16gb,true
+LST-5060TI-16G-EAGLE-LOCAL,RTX5060TI-16G-GIGA-EAGLE,LOCAL_VENDOR_QUOTE,Gigabyte Eagle Max RTX 5060 Ti 16GB OC Quote,offline_quote_2026_np_eagle,true
+

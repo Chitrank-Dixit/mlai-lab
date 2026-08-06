@@ -1,6 +1,6 @@
 # File: cv-lab/Dockerfile
-# Inherits from the shared CPU base image
-FROM ml-lab-base-cpu:latest
+# Inherits from the shared GPU base image
+FROM ml-lab-base-cuda123:latest
 
 # Install extra system libraries required by OpenCV and graphics rendering
 RUN apt-get update && apt-get install -y --no-install-recommends \

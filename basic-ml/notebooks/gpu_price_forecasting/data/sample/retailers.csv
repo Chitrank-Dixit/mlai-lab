@@ -1,0 +1,5 @@
+retailer_id,retailer_name,retailer_type,region,currency,trust_score
+MDCOMPUTERS,MD Computers,online_store,India,INR,0.95
+PRIMEABGB,PrimeABGB,online_store,India,INR,0.95
+VEDANT,Vedant Computers,online_store,India,INR,0.92
+LOCAL_VENDOR_QUOTE,Nehru Place Vendor Quote,offline_vendor,India,INR,0.88

@@ -1,6 +1,6 @@
 # File: deep-ml/Dockerfile
-# Inherits from the shared CPU base image
-FROM ml-lab-base-cpu:latest
+# Inherits from the shared GPU base image
+FROM ml-lab-base-cuda123:latest
 
 # Set up temporary working directory for build
 WORKDIR /tmp

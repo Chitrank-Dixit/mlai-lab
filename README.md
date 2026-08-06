@@ -138,7 +138,7 @@ docker compose -f compose.shared.yml -f compose.basic-ml.yml -f compose.deep-ml.
 ---
 
 ## ⚡ GPU (NVIDIA CUDA 12.3) Support
-Deep ML, CV, and RL labs are pre-configured to utilize your host NVIDIA GPU. 
+Deep ML, fast.ai, CV, and RL labs are pre-configured to utilize your host NVIDIA GPU. 
 
 ### Prerequisites for GPU:
 1. Ensure your host machine has NVIDIA drivers installed.
