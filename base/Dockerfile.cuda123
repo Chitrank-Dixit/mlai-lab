@@ -35,5 +35,12 @@ ENV UV_SYSTEM_PYTHON=1
 ENV UV_PROJECT_ENVIRONMENT=/usr/local
 WORKDIR /workspace
 
+# Copy JupyterLab configuration for system theme
+COPY shared/jupyter_lab_config.py /root/.jupyter/jupyter_lab_config.py
+
+# Create directory for JupyterLab user settings and copy overrides.json for system theme
+RUN mkdir -p /root/.local/share/jupyter/lab/user-settings/@jupyterlab/apputils-extension
+COPY shared/overrides.json /root/.local/share/jupyter/lab/user-settings/@jupyterlab/apputils-extension/overrides.json
+
 # Expose default Jupyter port
 EXPOSE 8888
