@@ -19,6 +19,7 @@ dependencies = [
     "mlflow>=2.5.0",
     "duckduckgo_search>=6.0.0",
     "pillow>=10.0.0",
+    "jupyter-contrib-nbextensions>=0.7.0",
 ]
 
 [[tool.uv.index]]
